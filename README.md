@@ -32,7 +32,53 @@ The 'Before Coalescing' diagram depicts a memory layout with alternating allocat
 
 ## Installation and Use
 
+1. Clone the repository to your local machine:
 
+   ```bash
+   git clone https://github.com/your_username/custom-malloc-free-c.git
+   ```
+
+2. If using provided testfile, simply run included make file:
+
+    ```bash
+    make
+    ```
+
+    Else include the library header in your own C file:
+
+    ```bash
+    #include "my_malloc.h"
+    ```
+
+3. To adjust maximum size of the allocated block, adjust `TOTAL_BLOCK` value within `my_malloc.h`:
+
+    ```bash
+    #define TOTAL_BLOCK 1000
+    ```
+
+4. Initiate the library within main:
+
+    ```bash
+    mem_init();
+    ```
+
+5. To use allocated memory, call as you would `malloc`, for example, to allocate a single `int`:
+
+    ```bash
+    int *int1 = (int *)my_malloc(sizeof(int));
+    ```
+
+6. To free memory, call as you would `free`:
+
+    ```bash
+    my_free(int1);
+    ```
+
+7. Free the inital memory block at the very end of your program to clean up:
+
+    ```bash
+    free_block();
+    ```
 
 ## Contact
 
