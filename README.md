@@ -45,19 +45,19 @@ The 'Before Coalescing' diagram depicts a memory layout with alternating allocat
     ./mem_test
     ```
 
-    Else include the library header in your own C file:
+    To use in your own program, include the library header in your C file:
 
     ```bash
     #include "my_malloc.h"
     ```
 
-3. To adjust maximum size of the allocated block, adjust `TOTAL_BLOCK` value within `my_malloc.h`:
+3. To adjust the maximum size of the allocated block, adjust `TOTAL_BLOCK` value within `my_malloc.h`:
 
     ```bash
     #define TOTAL_BLOCK 1000
     ```
 
-4. Initiate the library within main:
+4. Initiate the library within main():
 
     ```bash
     mem_init();
@@ -66,7 +66,7 @@ The 'Before Coalescing' diagram depicts a memory layout with alternating allocat
 5. To use allocated memory, call as you would `malloc`, for example, to allocate a single `int`:
 
     ```bash
-    int *int1 = (int *)my_malloc(sizeof(int));
+    int* int1 = (int*)my_malloc(sizeof(int));
     ```
 
 6. To free memory, call as you would `free`:
