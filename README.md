@@ -38,10 +38,11 @@ The 'Before Coalescing' diagram depicts a memory layout with alternating allocat
    git clone https://github.com/your_username/custom-malloc-free-c.git
    ```
 
-2. If using provided testfile, simply run included make file:
+2. If using the provided test file, simply run using the included make file:
 
     ```bash
     make
+    ./mem_test
     ```
 
     Else include the library header in your own C file:
