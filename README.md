@@ -18,9 +18,15 @@ The memory allocation strategy used in this code is a "first fit" approach, wher
 
 Coalescing is a memory management technique used to merge adjacent free blocks into a single, larger free block. This helps prevent external memory fragmentation and ensures more efficient use of available memory. As the inital memory block is used up however, coalescing becomes less effective.
 
-### Memory Diagram
+### Memory Diagrams
 
+![First-Fit Diagram](images/first-fit.png)
 
+First Fit Memory Allocation: In this diagram, an item of size 500 attempting to be allocated within a memory block featuring three open blocks of sizes 1000, 2000, and 550. The first fit algorithm selects the first available block with sufficient space (in this case, the 1000-sized block) for the requested item.
+
+![Coalescing Diagram](images/coalescing.png)
+
+The 'Before Coalescing' diagram depicts a memory layout with alternating allocated and free blocks, in the strucutre of a linked list. After applying memory coalescing, represented in the 'After Coalescing' diagram, adjacent free blocks are merged to create a more contiguous and efficient memory space. This process is done everytime an item is (`my_free`) is called, ensuring no two adjacent blocks can be free during use.
 
 ## Installation and Use
 
