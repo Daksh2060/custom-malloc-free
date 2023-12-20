@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include "my_malloc.h"
 
-/**
- * @brief Structure representing a memory block.
- */
+/*
+ Struct representing a memory block, will act as nodes for doubly linked list.
+*/
 struct block
 {
     size_t size;        /**< Size of the memory block */
@@ -20,11 +20,10 @@ struct block *block_list;              /**< Head of the linked list of memory bl
 char *allocated_block;                 /**< Pointer to the entire allocated memory block */
 int block_size = sizeof(struct block); /**< Size of the block structure */
 
-/**
- * @brief Initializes the custom memory allocation system.
- *
- * This function allocates the main memory block and sets up the initial block in the linked list.
- */
+/*
+ Initializes the custom memory allocation system.
+ This function allocates the main memory block and sets up the initial block in the linked list.
+*/
 void mem_init()
 {
     // Allocate memory for the entire block
@@ -47,14 +46,11 @@ void mem_init()
     block_list->prev = NULL;
 }
 
-/**
- * @brief Allocates a block of memory.
- *
- * This function searches for a suitable free block in the linked list or splits a larger block to fulfill the request.
- *
- * @param allocation_size The size of the memory block to allocate.
- * @return A pointer to the allocated memory block, or NULL if there is not enough space.
- */
+/*
+ Allocates a block of memory.
+ Function searches for a suitable free block in the linked list or splits a larger block to fulfill the request.
+ Returns a pointer to the allocated memory block, or NULL if there is not enough space.
+*/
 void *my_malloc(size_t allocation_size)
 {
     // Check if mem_init() has been called
@@ -109,13 +105,10 @@ void *my_malloc(size_t allocation_size)
     }
 }
 
-/**
- * @brief Frees a previously allocated block of memory.
- *
- * This function marks the specified block as free and may merge adjacent free blocks.
- *
- * @param free_item Pointer to the memory block to be freed.
- */
+/*
+ Frees a previously allocated block of memory.
+ Function marks the specified block as free and merges adjacent free blocks.
+*/
 void my_free(void *free_item)
 {
     void *block_start = (void *)allocated_block;
@@ -158,11 +151,10 @@ void my_free(void *free_item)
     }
 }
 
-/**
- * @brief Frees the entire allocated memory block.
- *
- * This function releases the memory allocated for the entire block.
- */
+/*
+ Frees the entire allocated memory block.
+ This function releases the memory allocated for the original block.
+*/
 void free_block()
 {
     free(allocated_block);
