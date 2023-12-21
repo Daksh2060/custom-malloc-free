@@ -35,7 +35,7 @@ The 'Before Coalescing' diagram depicts a memory layout with alternating allocat
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your_username/custom-malloc-free-c.git
+   git clone https://github.com/Daksh2060/custom-malloc-free-c.git
    ```
 
 2. If using the provided test file, simply run using the included make file:
